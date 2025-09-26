@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download with Local Page Redirect</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <div class="max-w-xl mx-auto p-6 space-y-6 text-center">
+    <h1 class="text-2xl font-bold">Download Social Studies Resources</h1>
+    <p class="text-gray-600">Click any button below. First, a local page will open, then download will start.</p>
+
+    <!-- Download Button 1 -->
+    <button onclick="openLocalPage('ad.html','file1.pdf')" 
+            class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700">
+      📥 Download History Notes
+    </button>
+
+    <!-- Download Button 2 -->
+    <button onclick="openLocalPage('about.html','file2.pdf')" 
+            class="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700">
+      📥 Download Geography Notes
+    </button>
+  </div>
+
+  <script>
+    function openLocalPage(localPage, file) {
+      // Open your local page in a new tab
+      window.open(localPage, "_blank");
+
+      // After 2 sec, start file download
+      setTimeout(() => {
+        window.location.href = file;  // Replace with your actual file (like /downloads/file1.pdf)
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
